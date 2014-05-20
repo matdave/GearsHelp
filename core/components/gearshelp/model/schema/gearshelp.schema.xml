@@ -2,6 +2,7 @@
 <model package="gearshelp" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
 	<object class="gearshelpBase" table="gearshelp_base" extends="xPDOSimpleObject" >
 	<field key="title" dbtype="varchar" precision="512" phptype="string" null="false" default="" index="index" />
+    <field key="date" dbtype="varchar" precision="20" phptype="string" null="true" />
 	<field key="description" dbtype="text" phptype="string" index="fulltext" />
 	<field key="details" dbtype="text" phptype="string" index="fulltext" />
 	<field key="createdby" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" />
