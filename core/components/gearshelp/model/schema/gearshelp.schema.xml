@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="gearshelp" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" version="1.1">
+	<object class="gearshelpBase" table="gearshelp_base" extends="xPDOSimpleObject" >
+	<field key="title" dbtype="varchar" precision="512" phptype="string" null="false" default="" index="index" />
+	<field key="description" dbtype="text" phptype="string" index="fulltext" />
+	<field key="details" dbtype="text" phptype="string" index="fulltext" />
+	<field key="createdby" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" />
+	<field key="editedby" dbtype="int" precision="10" attributes="unsigned" phptype="integer" null="false" default="0" />
+	<field key="ctx" dbtype="varchar" precision="24" phptype="string" null="false" default="" index="index" />
+	<index alias="PRIMARY" name="PRIMARY" primary="true" unique="true">
+		<column key="id" collation="A" null="false" />
+	</index>
+        <aggregate alias="CreatedBy" class="modUser" local="createdby" foreign="id" cardinality="one" owner="foreign"/>
+        <aggregate alias="EditedBy" class="modUser" local="editedby" foreign="id" cardinality="one" owner="foreign"/>
+	</object>
+</model>
